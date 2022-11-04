@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_first_practice/common_widgets.dart';
+import 'package:riverpod_first_practice/future_provider.dart';
 
 /* StateProvider : this provider notifies about its state, thus it is mutable and We can use this for permitive data types or where data is not so complex. In Simple words, use this State provider where we need minor updates on UI */
-final currentTimeStateprovider = StateProvider<int>(
+final currentIndexStateprovider = StateProvider<int>(
   (ref) => 0,
 );
 
@@ -12,6 +13,8 @@ class MyStateProvider extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //  print('////////////Calling Build Context/////////');
+    // final int time = ref.watch(currentIndexStateprovider);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -23,7 +26,8 @@ class MyStateProvider extends ConsumerWidget {
           children: [
             Consumer(
               builder: (BuildContext context, WidgetRef ref, Widget? child) {
-                final int time = ref.watch(currentTimeStateprovider);
+                //    print('////////////Calling Build Text/////////');
+                final int time = ref.watch(currentIndexStateprovider);
                 return Text(
                   time.toString(),
                   style: CommonWidgets.textStyle(),
@@ -35,10 +39,10 @@ class MyStateProvider extends ConsumerWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => MyStateProvider()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyFutureProvider()));
                 },
                 child: const Icon(
                   Icons.forward,
@@ -48,7 +52,7 @@ class MyStateProvider extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            ref.read(currentTimeStateprovider.notifier).state++;
+            ref.read(currentIndexStateprovider.notifier).state++;
           },
           child: const Icon(Icons.add)),
     );
