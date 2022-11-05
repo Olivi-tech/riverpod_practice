@@ -4,7 +4,7 @@ import 'package:riverpod_first_practice/common_widgets.dart';
 import 'package:riverpod_first_practice/future_provider.dart';
 
 /* StateProvider : this provider notifies about its state, thus it is mutable and We can use this for permitive data types or where data is not so complex. In Simple words, use this State provider where we need minor updates on UI */
-final currentIndexStateprovider = StateProvider<int>(
+final currentIndexStateprovider = StateProvider.autoDispose<int>(
   (ref) => 0,
 );
 

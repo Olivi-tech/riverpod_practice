@@ -4,7 +4,7 @@ import 'package:riverpod_first_practice/common_widgets.dart';
 import 'package:riverpod_first_practice/stateNotifierProvider/timeStateNotifier.dart';
 import 'package:intl/intl.dart';
 
-/* Stream Provider: This is same like Future Provider. We use stream where events are to be triggered very few seconds
+/* Stream Provider: This is same like Future Provider. We use stream where events are to be triggered in short period of time
 => use in firebase, websockets
  */
 

@@ -2,6 +2,8 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/* StateNotifierProvider: is used to notify about changes in imutable widgets which are caused by internal or user changes */
+
 final timeProvider = StateNotifierProvider<MyTime, DateTime>((ref) => MyTime());
 
 class MyTime extends StateNotifier<DateTime> {
